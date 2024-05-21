@@ -1,8 +1,11 @@
 module.exports = app => {
-    const customers = require("../controllers/customer.controller.js");
+  const customers = require("../controllers/customer.controller.js");
 
-    // Retrieve all Customers
-    app.get("/customers/:startDate/:endDate", customers.findAll);
-  
-    
-  };
+  app.get("/customers/:startDate/:endDate", customers.findAll);
+
+  app.get("/attendance", customers.findAllAttendance);
+
+  app.get("/users", customers.findAllUsers);
+
+  app.get("/user-groups", customers.findAllUserGroups);
+};

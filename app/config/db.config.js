@@ -1,9 +1,10 @@
-export const HOST = "oaita.cgoc.gy";
-export const USER = "readonly";
-export const PASSWORD = "readonly";
-export const DB = "ingress";
-export const port = 13306;
-export const connectionLimit = 100;
-export const queueLimit = 100;
-export const acquireTimeout = 1000000;
-export const connectTimeout = 30000;
+module.exports = {
+    HOST: "oaita.cgoc.gy",
+    USER: "readonly",
+    PASSWORD: "readonly",
+    DB: "ingress",
+    port: 13306,
+    connectionLimit: 100,
+    queueLimit: 100,
+    acquireTimeout: 1000000,
+    connectTimeout: 30000  };

@@ -52,7 +52,7 @@ Customer.getAll = (startDate, endDate, result) => {
              FROM attendance a 
              JOIN user b ON a.userid = b.userid 
              JOIN user_group c ON b.user_group = c.id 
-             WHERE a.date BETWEEN ? AND ?`, [startDate, endDate], (err, res) => {
+             WHERE a.date = curdate()-1`, (err, res) => {
     if (err) {
       console.log("Error: ", err);
       result(null, err);

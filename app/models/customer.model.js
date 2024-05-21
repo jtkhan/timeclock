@@ -46,18 +46,22 @@ Customer.getAllUserGroups = (result) => {
   });
 };
 
-// Get all employees between startDate and endDate
 Customer.getAll = (startDate, endDate, result) => {
-  sql.query(`SELECT a.userid, a.date, a.att_in, a.att_out, gname 
-             FROM attendance a 
-             JOIN user b ON a.userid = b.userid 
-             JOIN user_group c ON b.user_group = c.id 
-             WHERE a.date = curdate()-1`, (err, res) => {
+  const query = `
+    SELECT a.userid, a.date, a.att_in, a.att_out, gname 
+    FROM attendance a 
+    JOIN user b ON a.userid = b.userid 
+    JOIN user_group c ON b.user_group = c.id 
+    WHERE a.date BETWEEN ? AND ?
+  `;
+
+  sql.query(query, [startDate, endDate], (err, res) => {
     if (err) {
       console.log("Error: ", err);
       result(null, err);
       return;
     }
+
     console.log("Employees: ", res);
     result(null, res);
   });

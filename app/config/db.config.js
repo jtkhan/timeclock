@@ -1,5 +1,5 @@
 module.exports = {
-    HOST: "oaita.cgoc.gy",
+    HOST: "190.80.11.132",
     USER: "readonly",
     PASSWORD: "readonly",
     DB: "ingress",
